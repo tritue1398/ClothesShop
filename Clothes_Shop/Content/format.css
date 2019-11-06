@@ -1,0 +1,148 @@
+﻿body {
+    margin:0px auto;
+    padding:0px;
+    font-family:Tahoma;
+}
+#banner{width:100%;height:55px;margin:0 auto;position:relative;background-color:#a8e5ec;}
+#head{width:100%;height:25px;background-color:#91d646; position:relative;}
+#title{ width:100%; height:25px; border-bottom: 1px solid gray; background-color:#ffffff; position:relative;}
+#content{width:100%;  background-color:red; z-index:1; height:auto;}
+#content .left{ width:80%; position:relative;  background-color:whitesmoke;float:left;}
+#content .right{  width:20%;   float:left;  height:auto; background-color:whitesmoke; text-align:center;}
+#footer{    width:100%;    height:300px;    background-color:#a8e5ec;    float:left;}
+
+/*CSS phần trong bannner*/
+#banner .image{    margin-left: 100px;    margin-top:5px;     height:55px;     float:left;     }
+#banner .image a:hover{    opacity:0.6;}
+#banner .search input{  float:left; width:700px; height:30px; margin:9px 30px;  border-radius:2px;}
+#banner .search button{    margin-left:-81px;    margin-top:10px;    background-color:white;    border-radius:4px;}
+#banner .search button img{   float:right;width:35px;    height:29px;    display:inline-block;}
+#banner .regester ul li a{    display: block;    text-decoration: none;    font-weight: bold;
+                              line-height:32px;    color:black;     line-height: 25px;     padding:0px 5px;} 
+#banner .regester ul{ list-style: none;    line-height: 25px;     float:left;     margin:-30px -60px;}
+#banner .regester ul li{      float:left;}
+#banner .regester a:hover{    color:white;}
+#banner .basket a {   margin-left:160px;   margin-bottom:-50px;   position:absolute;   top:4px;}
+/* Css phần head*/
+#head .phone span{    text-align:left;    margin:auto 0px ;   float:left;    line-height:25px;   font-weight:bold;}
+#head .phone img{    float:left;}
+#head .connect{      float:right;}
+#head .connect span{    text-align:right;    margin:auto 0px;    float:left;    line-height:25px;  font-weight:bold;}
+#head .connect span a{   text-decoration:none;   color:black;}
+#head .connect span a:hover{  color:white;}
+#head .connect span a img:hover{   opacity:0.6;}
+
+/*Css phần title*/
+#title a{  display: block;    text-decoration: none;    font-weight: bold;   color:gray;      padding:0px 15px;    }
+/*Tầng 1*/
+#title ul{    position: relative;    list-style: none;   line-height: 15px;  }
+#title ul li{    position: relative;    float:left;}
+
+
+/*Tầng 2*/
+#title li ul{   position: absolute;    display: none;    margin:0px;    padding:0px;    background-color:#ffffff;
+            left:15px;top:18px;    z-index:1;}
+#title li ul li{   width: auto;    margin:0px;    padding:0px;}
+#title li:hover ul ul{    display:none;}
+#title li:hover ul,
+#title li li:hover ul{display:block;line-height:30px;}
+#title a:hover{  color:red;}
+
+/* Css phần tạo tài khoản*/
+#content .left h4 {    color:darkblue;    font-size:20px;    text-align:center;}
+#content .left span{    margin-left:10%;    line-height:5px;    font-size:15px;   }
+#content .left input{    width:750px;    height:30px;    margin-left:10%;    padding:5px;    margin-bottom:20px;}
+#content .left button{  margin-left:10%;  background-color:cornflowerblue;  cursor:pointer;   width:765px;
+                       line-height:30px;  color:white;}
+#content .left button:hover{  background-color:red;}
+#content .right h3{    margin-top:50px;}
+/*Css phần log in*/
+#login {    width:100%;    height:400px;   position:relative;}
+#login .box h3{    text-align:center;}
+#login .box{   position:absolute;   width:400px;    height:350px;    border:1px solid #91d646;    left:38%;    top:5%;  }
+#login .box span{    margin-left:10%;    line-height:5px;    font-size:15px; }
+#login input{    width:300px;    height:30px;    margin-left:10%;    padding:5px;    margin-bottom:15px;    border-radius:3px;}
+#login span a{    text-decoration:none;    float:right;    margin-right:25px;}
+#login .box .login_{   width:380px;    height:100px;    background-color:#ebebe0;    margin:15px auto;}
+#login .box .login_ input[type="checkbox"]{    margin-left:140px;    width:15px;    vertical-align:middle;    }
+#login .box .login_ input[type="submit"]{   width:300px;    color:black;    border-radius:5px;   background-color:cornflowerblue;}
+#login .box .login_ input[type="submit"]:hover{    background-color:red;    cursor:pointer;}
+
+/*Css phần footer*/
+#footer .address{    width:50%;   color:blue;    float:left;}
+#footer .address span{   margin-left:20px;   margin-bottom:10px;}
+
+#footer .address h3{    text-align:center;    color:black;}
+#footer .policy{ width:25%;   float:left;}
+#footer .policy h3{   text-align:center;}
+#footer .policy ul li {  list-style:none;  margin:10px;}
+#footer .policy ul li a{    text-decoration:none;    color:blue;}
+#footer .policy ul li a:hover{   color:red;}
+#footer .acount{   width:25%;   float:left;}
+#footer .acount h3{    text-align:center;   color:black;}
+#footer .acount ul li {   list-style:none;    margin:10px;}
+#footer .acount ul li a{    text-decoration:none;   color:blue;}
+#footer .acount ul li a:hover{    color:red;}
+
+/*Phần Footer_infor*/
+#footer_info{    width:80%;   height:auto;    background-color:whitesmoke;   margin:0 auto;}
+#footer_info h3{    text-align:center;    color:blue;    border-bottom:1px solid #ebebe0;}
+#footer_info img{     margin:0px auto;    vertical-align:middle;   }
+#footer_info b{   color:red;   line-height:10px;}
+#footer_info .paymethod b{   color:black;}
+#footer_info transit_method{     }
+#footer_info .address b{   color:black;}
+ 
+/*Css phần content left 80%*/
+#content .left .box-cha{width:1020px;height:800px;margin-left:55px;}
+#content .left .box-con{ width:235px; height:400px; border:1px solid #ebebe0; float:left; margin:7px 10px 7px 7px; text-align:center;}
+#content .left .box-image{width:235px;height:280px;margin-bottom:10px;}
+#content .left .box-con:hover{border:1px solid red;}
+#content .left .box-image img {max-width:235px; max-height:280px; transition:1s;}
+#content .left .box-image img:hover{transform:scale(1.1,1);}
+#content .left .box-con a{color:black;text-decoration:none; }
+#content .left .box-con p{color:red;}
+
+/*Css phần content right 20%*/
+#content .right img{vertical-align:middle; margin-top:10px; margin-left:-60px;}
+#content .right b{vertical-align:middle;}
+#content .right .box-danhmuc{text-align:left; border:1px solid #ebebe0; width:220px;}
+#content .right .box-danhmuc input[type="checkbox"]{margin-bottom:10px; font-size:40px;}
+#content .right .box-price{text-align:left; border:1px solid #ebebe0; width:220px; margin-top:10px;}
+#content .right .box-price input[type="text"]{ width:90px;height:30px; margin-left:7px;}
+#content .right .submit{ margin-top:10px;float:left; margin-left:0px;height:auto; }
+#content .right .submit input[type="submit"]{width:220px;height:30px;font-size:18px;background-color:cornflowerblue;
+                               cursor:pointer;}
+#content .right .submit  input[type="submit"]:hover{background-color:red;color:white;}
+#content .right .submit button{width:220px;height:30px;font-size:18px;background-color:cornflowerblue;
+                               cursor:pointer}
+#content .right .submit  button:hover{background-color:red;color:white;}
+#content .right .introduce{width:220px;height:400px;margin-top:130px;}
+#content .right .introduce .introduce-tittle{ width:220px;height:30px;background-color:#a8e5ec;line-height:25px;}
+#content .right .introduce .introduce-content {  margin-top: 15px;}
+#content .right .introduce .introduce-content img{float:left;margin:1px;}
+#content .right .introduce .introduce-content span{ font-size:15px;float:left;}
+
+/*Css phần chi tiết sản phẩm*/
+#content-chitietsp{width:100%; background-color:whitesmoke; height:auto; }
+#content-chitietsp .info{ width:1215px;height:auto;background-color:white;margin:10px auto;}
+#content-chitietsp .info .box-image{width:480px;height:500px; text-align:center; border:1px solid whitesmoke;}
+#content-chitietsp .info .box-image img{max-width:450px;max-height:480px; margin:0 auto;}
+#content-chitietsp .info .box-buy{width:730px; height:auto;float:right; margin-top:-41%;}
+#content-chitietsp .info .box-buy p{font-size:25px; margin:20px;}
+#content-chitietsp .info .box-buy .box-price{ width:650px;height:50px;background-color:whitesmoke;
+                                    margin-left:40px;text-align:center;line-height:35px;}
+#content-chitietsp .info .box-buy .box-price p{color:red;}
+#content-chitietsp .info .size{ width:80px;height:30px;margin:15px 7px;cursor:pointer;}
+#content-chitietsp .info .size:focus{background-color:red;}
+#content-chitietsp .info span{margin-left:20px;}
+#content-chitietsp .info .quantity{cursor:pointer;}
+#content-chitietsp .info input[type="text"]{width:40px;text-align:center; }
+#content-chitietsp .info .box-buy .them-vao-gio{width:150px;height:40px;background-color: #e6f9ff;cursor:pointer;margin:15px;}
+#content-chitietsp .info .box-buy .mua-ngay{width:150px;height:40px;background-color:#a8e5ec;cursor:pointer; margin:15px;}
+
+#content-chitietsp .info .detail{width:1215px;height:400px; margin-top:20px;}
+#content-chitietsp .info .detail .box-detail{width:1180px;height:40px;background-color:whitesmoke;line-height:40px; margin:10px auto}
+#content-chitietsp .info .detail .title{color:#acac86; padding:10px;line-height:40px;}
+
+
