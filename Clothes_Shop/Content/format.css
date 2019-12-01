@@ -14,7 +14,7 @@
 /*CSS phần trong bannner*/
 #banner .image{    margin-left: 100px;    margin-top:5px;     height:55px;     float:left;     }
 #banner .image a:hover{    opacity:0.6;}
-#banner .search input{  float:left; width:700px; height:30px; margin:9px 30px;  border-radius:2px;}
+#banner .search input{  float:left; width:700px; height:30px; margin:9px 30px;  border-radius:2px;font-size:19px;}
 #banner .search button{    margin-left:-81px;    margin-top:10px;    background-color:white;    border-radius:4px;}
 #banner .search button img{   float:right;width:35px;    height:29px;    display:inline-block;}
 #banner .regester ul li a{    display: block;    text-decoration: none;    font-weight: bold;
@@ -57,9 +57,9 @@
 #content .left button:hover{  background-color:red;}
 #content .right h3{    margin-top:50px;}
 /*Css phần log in*/
-#login {    width:100%;    height:400px;   position:relative;}
+#login { width:100%;height:400px;}
 #login .box h3{    text-align:center;}
-#login .box{   position:absolute;   width:400px;    height:350px;    border:1px solid #91d646;    left:38%;    top:5%;  }
+#login .box{     width:400px;    height:350px;    border:1px solid #91d646;   margin:15px auto; }
 #login .box span{    margin-left:10%;    line-height:5px;    font-size:15px; }
 #login input{    width:300px;    height:30px;    margin-left:10%;    padding:5px;    margin-bottom:15px;    border-radius:3px;}
 #login span a{    text-decoration:none;    float:right;    margin-right:25px;}
@@ -142,7 +142,61 @@
 #content-chitietsp .info .box-buy .mua-ngay{width:150px;height:40px;background-color:#a8e5ec;cursor:pointer; margin:15px;}
 
 #content-chitietsp .info .detail{width:1215px;height:400px; margin-top:20px;}
-#content-chitietsp .info .detail .box-detail{width:1180px;height:40px;background-color:whitesmoke;line-height:40px; margin:10px auto}
+#content-chitietsp .info .detail .box-detail{width:1180px;height:40px;background-color:whitesmoke;line-height:40px; margin:10px auto;}
 #content-chitietsp .info .detail .title{color:#acac86; padding:10px;line-height:40px;}
 
+/*Css phần NhanVienController */
+#banner .chu{text-align:center;}
+#banner .chu span{color:red;line-height:50px;margin-left:-150px;font-size:20px;}
+#login_nhanvien{width:95%;height:300px;background-color:none; margin:10px auto;}
+#login_nhanvien .box{width:30%;height:260px;text-align:center; background-color:white;margin:0px auto; 
+                       line-height:20px; border:1px solid #91d646}
+#login_nhanvien .box h3{color:blue;}
+#login_nhanvien .box input[type="text"]{width:250px;height:30px;}
+#login_nhanvien .box input[type="password"]{width:250px;height:30px;}
+#login_nhanvien .box input[type="submit"]{cursor:pointer;background-color:cornflowerblue;width:250px;height:30px;font-size:15px;}
+#login_nhanvien .box input[type="submit"]:hover{background-color:red;color:white;}
+#login_nhanvien .box a{color:blue;text-decoration:none;}
+ 
+#san_pham{width:95%;height:400px;background-color:red; margin:10px auto;}
+ 
+/*Css phần thanh toán*/
+#content-thanhtoan{width:100%;height:auto;background-color:whitesmoke ; }
+#content-thanhtoan .address-recive{width:95%;height:115px;margin:0px auto;background-color:white;}
+#content-thanhtoan .address-recive b{color:red;padding-left:10px; }
+#content-thanhtoan .address-recive span{padding-left:25px;line-height:25px; }
 
+#content-thanhtoan .basket-product{width:95%;height:70px; margin:10px auto;background-color:white; }
+#content-thanhtoan .basket-product b{color:red;padding-left:30px; }
+#content-thanhtoan .basket-product ul {list-style:none; float:right;}
+#content-thanhtoan .basket-product ul li{ float:left; margin-right:100px;line-height:40px;color:gray;} 
+
+#content-thanhtoan .basket-product-detail{width:95%;height:auto; margin:10px auto;background-color:white; text-align:center; }
+
+#content-thanhtoan .basket-product-detail  .basket-product-detail-box{border-bottom:1px dashed gray;width:100%;height:140px;text-align:center;}
+#content-thanhtoan .basket-product-detail ul {list-style:none; float:right;}
+#content-thanhtoan .basket-product-detail ul li{ float:left; margin-right:100px;line-height:40px;color:gray;}
+#content-thanhtoan .basket-product-detail a{text-decoration:none;color:gray;}
+#content-thanhtoan .basket-product-detail a:hover{color:red; }
+#content-thanhtoan .basket-product-detail input[type="text"]{width:30px;text-align:center;}
+#content-thanhtoan .basket-product-detail button:hover{cursor:pointer; }
+#content-thanhtoan .basket-product-detail .box{width:100px;height:120px; margin:-10px -280px; border:1px solid blue;}  
+#content-thanhtoan .basket-product-detail .box img{max-width:150px;max-height:120px; } 
+ 
+#content-thanhtoan .basket-product-pay-method{ width:95%;height:100px; margin:10px auto;background-color:white; }
+#content-thanhtoan .basket-product-pay-method b{color:red;padding-left:30px; }
+#content-thanhtoan .basket-product-pay-method .text {float:right;margin-right:100px; }
+#content-thanhtoan .basket-product-pay-method .sum-money{margin-left:30px;line-height:40px;}
+#content-thanhtoan .basket-product-pay-method button{width:400px;height:35px;margin-left:250px;margin-top:20px;background-color:#6495ed;}
+#content-thanhtoan .basket-product-pay-method button:hover{background-color:red;color:white; cursor:pointer; }
+
+/*Css phần admin*/
+#banner .admin{text-align:center;}
+#banner .admin span{color:blue;line-height:50px;margin-left:-150px;font-size:20px;}
+#acount_manager {width:95%;height:400px;background-color:whitesmoke; margin:10px auto;}
+#acount_manager ul{list-style:none;}
+#acount_manager ul li{line-height:30px;text-align:center;}
+#acount_manager ul li a{text-decoration:none;display:block;border:1px solid gray;width:150px; margin-bottom:5px;
+                        background-color:aqua; border-radius:5px; }
+#acount_manager ul li a:hover{background-color:turquoise;color:white;}
+  

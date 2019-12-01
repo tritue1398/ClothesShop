@@ -170,9 +170,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\FooterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NhanVienController.cs" />
     <Compile Include="Controllers\RegesterController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
@@ -219,6 +221,7 @@
     <Content Include="image\Facebook.png" />
     <Content Include="image\find-icon.png" />
     <Content Include="image\find.png" />
+    <Content Include="image\Gps.png" />
     <Content Include="image\Heart.png" />
     <Content Include="image\help.png" />
     <Content Include="image\Home.jpg" />
@@ -304,6 +307,10 @@
     <Content Include="Views\Footer\TransitMothod.cshtml" />
     <Content Include="Views\Footer\Address.cshtml" />
     <Content Include="Views\TrangChu\ChiTietSanPham.cshtml" />
+    <Content Include="Views\NhanVien\SanPham.cshtml" />
+    <Content Include="Views\NhanVien\Login.cshtml" />
+    <Content Include="Views\TrangChu\ThanhToan.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

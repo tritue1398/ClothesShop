@@ -21,5 +21,9 @@ namespace Clothes_Shop.Controllers
         {
             return View();
         }
+        public ActionResult ThanhToan()
+        {
+            return View();
+        }
     }
 }
