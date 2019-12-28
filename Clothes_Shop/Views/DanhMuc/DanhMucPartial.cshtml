@@ -1,0 +1,29 @@
+﻿@using Clothes_Shop.Models;
+@model List<LOAISANPHAM>
+
+
+<ul>
+    <li>
+        <a href="#">THỜI TRANG NAM</a>
+        <ul>
+            @{
+                foreach (var item in Model)
+                {
+                    <li><a href="@Url.Action("SanPhamTheoDM","DanhMuc", new { @madm = item.MALSP,  @maGT=1 })">@item.TENLSP</a> </li>
+                }
+             }
+        </ul>
+    </li>
+    <!--thời trang nữ-->
+    <li>
+        <a href="#">THỜI TRANG NỮ</a>
+        <ul>
+            @{
+                foreach (var item in Model)
+                {
+                  <li><a href="@Url.Action("SanPhamTheoDM",new{@madm=item.MALSP,@maGT=2})">@item.TENLSP</a> </li>
+                }
+            }
+        </ul>
+    </li>
+</ul>

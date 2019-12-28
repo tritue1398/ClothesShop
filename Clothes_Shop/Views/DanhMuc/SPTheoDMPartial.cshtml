@@ -1,0 +1,20 @@
+﻿@using Clothes_Shop.Models;
+@model List<SANPHAM>
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="box-con">
+
+            <div class="box-image">
+                <a href="@Url.Action("ChiTietSanPham","SanPham",new{@masp=item.MASP})"><img src="@Url.Content("~/ImageClothes/"+item.ANHSP)" /></a>
+            </div>
+            <a href="@Url.Action("ChiTietSanPham","SanPham",new{@masp=item.MASP})">@item.TENSP</a>
+            <p>Size: @item.SIZE</p>
+            <p>@item.GIABD đ</p>
+        </div>
+
+    }
+}
+
+

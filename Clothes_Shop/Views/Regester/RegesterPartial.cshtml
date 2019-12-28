@@ -1,0 +1,30 @@
+﻿@using Clothes_Shop.Models
+
+@if (Session["TaiKhoan"] == null)
+{
+    <ul>
+        <li><a href="~/Regester/Login"> Đăng nhập</a></li>
+        <li><a href="~/Regester/Index">Đăng kí</a></li>
+    </ul>
+}
+else
+{
+    KHACHHANG kh = Session["TaiKhoan"] as KHACHHANG;
+    string hoten = kh.HOTEN;
+    int idx = hoten.LastIndexOf(" ");
+    string ten = hoten.Substring(idx + 1);
+    <div class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">
+                xin chào,@ten
+                <i class="dropdown-menu-title"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="@Url.Action("infor","KhachHang")">Thông tin tài khoản</a>
+                <a href="@Url.Action("TinhTrangDonHang","KhachHang")">Đơn Hàng</a>
+                <a href="@Url.Action("Logout","KhachHang")">Đăng xuất</a>
+            </div>
+        </div>
+    </div>
+
+}

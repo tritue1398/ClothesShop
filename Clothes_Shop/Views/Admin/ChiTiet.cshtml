@@ -1,0 +1,82 @@
+﻿@model Clothes_Shop.Models.NHANVIEN
+
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h2>Thông tin chi tiết</h2>
+
+<div id="infor">
+    <h4>NHANVIEN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MANV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MANV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOTEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOTEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAIKHOAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAIKHOAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATKHAU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATKHAU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIACHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIENTHOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIENTHOAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAGT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAGT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Trở về", "QuanLyNhanVien")
+</p>

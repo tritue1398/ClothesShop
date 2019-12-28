@@ -14,18 +14,29 @@ namespace Clothes_Shop.Models
     
     public partial class SANPHAM
     {
-        public string MASP { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public SANPHAM()
+        {
+            this.ChiTietHDs = new HashSet<ChiTietHD>();
+        }
+    
+        public int MASP { get; set; }
         public string TENSP { get; set; }
         public string ANHSP { get; set; }
         public string SIZE { get; set; }
+        public string MAU { get; set; }
         public string THUONGHIEU { get; set; }
         public string CHATLIEU { get; set; }
         public string MOTA { get; set; }
-        public Nullable<bool> SPKM { get; set; }
-        public Nullable<bool> ACTIVE { get; set; }
         public Nullable<double> GIABD { get; set; }
-        public Nullable<double> GIAHT { get; set; }
         public Nullable<System.DateTime> NGAYDANG { get; set; }
         public Nullable<int> MALSP { get; set; }
+        public Nullable<int> MAGIOITINH { get; set; }
+        public Nullable<int> SoLuongTon { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChiTietHD> ChiTietHDs { get; set; }
+        public virtual GioiTinh GioiTinh { get; set; }
+        public virtual LOAISANPHAM LOAISANPHAM { get; set; }
     }
 }

@@ -1,0 +1,119 @@
+﻿@model Clothes_Shop.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h3>Bạn có muốn xóa sản phẩm này không</h3>
+<div id="infor">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MASP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MASP)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TENSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENSP)
+        </dd>
+      
+        <dt>
+            @Html.DisplayNameFor(model => model.ANHSP)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/ImageClothes/"+Model.ANHSP)" />
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.SIZE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SIZE)
+        </dd>
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.MAU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAU)
+        </dd>
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.THUONGHIEU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THUONGHIEU)
+        </dd>
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.CHATLIEU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHATLIEU)
+        </dd>
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.MOTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOTA)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.GIABD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIABD)
+        </dd>
+        
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYDANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDANG)
+        </dd>
+      
+        <dt>
+            @Html.DisplayNameFor(model => model.MALSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MALSP)
+        </dd>
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.MAGIOITINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAGIOITINH)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm(new { @maSP = Model.MASP })) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" />
+            <a href=" @Url.Action("QuanLySanPham")"><button type="button">Trở về</button></a>
+        </div>
+    }
+</div>

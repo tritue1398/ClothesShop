@@ -1,0 +1,15 @@
+﻿
+@using Clothes_Shop.Models
+
+
+<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    <i class="halflings-icon white user"></i> Admin
+    <span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+    <li class="dropdown-menu-title">
+        <span>Account Settings</span>
+    </li>
+    <li><a href="@Url.Action("infor","Admin")"><i class="halflings-icon user"></i> Thông tin tài khoản</a></li>
+    <li><a href="@Url.Action("Index","TrangChu")"><i class="halflings-icon off"></i> Đăng xuất</a></li>
+</ul>

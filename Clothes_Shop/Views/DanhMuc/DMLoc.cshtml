@@ -1,0 +1,25 @@
+﻿@model Clothes_Shop.Models.DanhMucLocList
+
+@using (Html.BeginForm("LocSP", "DanhMuc"))
+{
+    <div class="box-danhmuc">
+        <p><b>Theo danh mục</b></p>
+        @for (int i = 0; i < Model.loc.Count; i++)
+        {
+            @Html.CheckBoxFor(m => Model.loc[i].IsChecked)
+            @Model.loc[i].Name
+            @Html.HiddenFor(m => Model.loc[i].Id)
+            @Html.HiddenFor(m => Model.loc[i].Name)
+            <br />
+        }
+    </div>
+
+    <div class="box-price">
+        <p><b>Khoảng giá</b></p>
+        <input style="width: 90px;" type="number" placeholder="đ Từ" name="giaMin" /> <span>-</span> <input style="width: 90px;" name="giaMax" type="number" placeholder="đ Đến" />
+    </div>
+    <div class="submit">
+        <input type="submit" value="Áp dụng" /><br /><br />
+
+    </div>
+}

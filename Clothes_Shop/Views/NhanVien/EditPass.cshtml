@@ -1,0 +1,69 @@
+﻿@model Clothes_Shop.Models.NHANVIEN
+
+@{
+    ViewBag.Title = "EditPass";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Đổi mật khẩu</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.MATKHAU, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="password" name="OldPass" />
+            <span id="Pass" class="alert alert-danger hide" role="alert">@ViewBag.ThongBao</span>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Nhập mật khẩu mới", htmlAttributes: new { @class = "control-label col-md-2" })
+        
+        <div class="col-md-10">
+            <input type="password" name="NewPass" id="newpass" />
+            <span id="mess"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Nhập lại mật khẩu mới", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="password" name="EnterNewPass" id="enternewpass"/>
+            <span id="mes"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2-col-md-10">
+            <input type="submit" value="Lưu" class="btnLuu" id="btnLuu" />
+            <a href="@Url.Action("infor")"><button type="button">Trở về</button></a>
+        </div>
+    </div>
+</div>
+}
+
+<script type="text/javascript">
+    $('#btnLuu').click(function () {
+        var i = 0;
+        if ($('#newpass').val() != $('#enternewpass').val()) {
+            $('#mes').text("Mật khẩu nhập lại không khớp!");
+            i++;
+            
+        }
+        if ($('#newpass').val() == null) {
+            $('#mess').text("Vui lòng nhập mật khẩu mới!");
+            i++;
+        }
+        if (i > 0)
+            return false;
+        
+    });
+   $('#Pass').removeClass('hide');
+   $('#Pass').delay(2000).slideUp(100);
+</script>

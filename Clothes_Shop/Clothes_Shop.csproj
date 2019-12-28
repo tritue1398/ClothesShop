@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Clothes_Shop</RootNamespace>
     <AssemblyName>Clothes_Shop</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -25,6 +25,8 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,8 +51,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -58,12 +67,9 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -104,6 +110,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -171,36 +178,68 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\DanhMucController.cs" />
     <Compile Include="Controllers\FooterController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NhanVienController.cs" />
     <Compile Include="Controllers\RegesterController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ChiTietHD.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DanhMucLoc.cs" />
+    <Compile Include="Models\Gio.cs" />
+    <Compile Include="Models\GioiTinh.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HOADON.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\KHACHHANG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOAISANPHAM.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Model1.Context.cs">
+    <Compile Include="Models\Metadata\KHACHHANG.metadata.cs" />
+    <Compile Include="Models\Metadata\NHANVIEN.metadata.cs" />
+    <Compile Include="Models\Metadata\SANPHAM.metadata.cs" />
+    <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.cs">
+    <Compile Include="Models\Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
+    <Compile Include="Models\Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHANVIEN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SANPHAM.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ThongKeSanPham.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -208,10 +247,193 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\format.css" />
+    <Content Include="Content\LayoutAdmin\calendar.html" />
+    <Content Include="Content\LayoutAdmin\chart.html" />
+    <Content Include="Content\LayoutAdmin\css\bootstrap-responsive.css" />
+    <Content Include="Content\LayoutAdmin\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\LayoutAdmin\css\bootstrap.css" />
+    <Content Include="Content\LayoutAdmin\css\bootstrap.min.css" />
+    <Content Include="Content\LayoutAdmin\css\chosen.css" />
+    <Content Include="Content\LayoutAdmin\css\elfinder.min.css" />
+    <Content Include="Content\LayoutAdmin\css\elfinder.theme.css" />
+    <Content Include="Content\LayoutAdmin\css\font-awesome-ie7.min.css" />
+    <Content Include="Content\LayoutAdmin\css\font-awesome.min.css" />
+    <Content Include="Content\LayoutAdmin\css\form.css" />
+    <Content Include="Content\LayoutAdmin\css\fullcalendar.css" />
+    <Content Include="Content\LayoutAdmin\css\glyphicons.css" />
+    <Content Include="Content\LayoutAdmin\css\halflings.css" />
+    <Content Include="Content\LayoutAdmin\css\ie.css" />
+    <Content Include="Content\LayoutAdmin\css\ie9.css" />
+    <Content Include="Content\LayoutAdmin\css\jquery-ui-1.8.21.custom.css" />
+    <Content Include="Content\LayoutAdmin\css\jquery.cleditor.css" />
+    <Content Include="Content\LayoutAdmin\css\jquery.gritter.css" />
+    <Content Include="Content\LayoutAdmin\css\jquery.iphone.toggle.css" />
+    <Content Include="Content\LayoutAdmin\css\jquery.noty.css" />
+    <Content Include="Content\LayoutAdmin\css\noty_theme_default.css" />
+    <Content Include="Content\LayoutAdmin\css\style-forms.css" />
+    <Content Include="Content\LayoutAdmin\css\style-responsive.css" />
+    <Content Include="Content\LayoutAdmin\css\style.css" />
+    <Content Include="Content\LayoutAdmin\css\uniform.default.css" />
+    <Content Include="Content\LayoutAdmin\css\uploadify.css" />
+    <Content Include="Content\LayoutAdmin\file-manager.html" />
+    <Content Include="Content\LayoutAdmin\font\glyphicons-regular.svg" />
+    <Content Include="Content\LayoutAdmin\font\glyphiconshalflings-regular.svg" />
+    <Content Include="Content\LayoutAdmin\form.html" />
+    <Content Include="Content\LayoutAdmin\gallery.html" />
+    <Content Include="Content\LayoutAdmin\icon.html" />
+    <Content Include="Content\LayoutAdmin\img\arrows-active.png" />
+    <Content Include="Content\LayoutAdmin\img\arrows-normal.png" />
+    <Content Include="Content\LayoutAdmin\img\avatar.jpg" />
+    <Content Include="Content\LayoutAdmin\img\bg-input-focus.png" />
+    <Content Include="Content\LayoutAdmin\img\bg-input.png" />
+    <Content Include="Content\LayoutAdmin\img\bg-login.jpg" />
+    <Content Include="Content\LayoutAdmin\img\browser-chrome-big.png" />
+    <Content Include="Content\LayoutAdmin\img\browser-firefox-big.png" />
+    <Content Include="Content\LayoutAdmin\img\browser-ie.png" />
+    <Content Include="Content\LayoutAdmin\img\browser-opera.png" />
+    <Content Include="Content\LayoutAdmin\img\browser-safari.png" />
+    <Content Include="Content\LayoutAdmin\img\buttons.gif" />
+    <Content Include="Content\LayoutAdmin\img\chat-left%402x.png" />
+    <Content Include="Content\LayoutAdmin\img\chat-left-metro%402x.png" />
+    <Content Include="Content\LayoutAdmin\img\chat-left-metro.png" />
+    <Content Include="Content\LayoutAdmin\img\chat-left.png" />
+    <Content Include="Content\LayoutAdmin\img\chat-right%402x.png" />
+    <Content Include="Content\LayoutAdmin\img\chat-right-metro%402x.png" />
+    <Content Include="Content\LayoutAdmin\img\chat-right-metro.png" />
+    <Content Include="Content\LayoutAdmin\img\chat-right.png" />
+    <Content Include="Content\LayoutAdmin\img\chosen-sprite.png" />
+    <Content Include="Content\LayoutAdmin\img\close-button-white.png" />
+    <Content Include="Content\LayoutAdmin\img\close-button.png" />
+    <Content Include="Content\LayoutAdmin\img\crop.gif" />
+    <Content Include="Content\LayoutAdmin\img\dialogs.png" />
+    <Content Include="Content\LayoutAdmin\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\LayoutAdmin\img\glyphicons-halflings.png" />
+    <Content Include="Content\LayoutAdmin\img\glyphicons-white.png" />
+    <Content Include="Content\LayoutAdmin\img\glyphicons-white.svg" />
+    <Content Include="Content\LayoutAdmin\img\glyphicons.png" />
+    <Content Include="Content\LayoutAdmin\img\glyphicons.svg" />
+    <Content Include="Content\LayoutAdmin\img\glyphicons_halflings-white.png" />
+    <Content Include="Content\LayoutAdmin\img\glyphicons_halflings-white.svg" />
+    <Content Include="Content\LayoutAdmin\img\glyphicons_halflings.png" />
+    <Content Include="Content\LayoutAdmin\img\glyphicons_halflings.svg" />
+    <Content Include="Content\LayoutAdmin\img\icons-big.png" />
+    <Content Include="Content\LayoutAdmin\img\icons-small.png" />
+    <Content Include="Content\LayoutAdmin\img\iphone-style-checkboxes\off-63584.png" />
+    <Content Include="Content\LayoutAdmin\img\iphone-style-checkboxes\on-63584.png" />
+    <Content Include="Content\LayoutAdmin\img\iphone-style-checkboxes\slider_center-63584.png" />
+    <Content Include="Content\LayoutAdmin\img\iphone-style-checkboxes\slider_left-63584.png" />
+    <Content Include="Content\LayoutAdmin\img\iphone-style-checkboxes\slider_right-63584.png" />
+    <Content Include="Content\LayoutAdmin\img\progress.gif" />
+    <Content Include="Content\LayoutAdmin\img\quicklook-bg.png" />
+    <Content Include="Content\LayoutAdmin\img\quicklook-icons.png" />
+    <Content Include="Content\LayoutAdmin\img\quote.png" />
+    <Content Include="Content\LayoutAdmin\img\resize.png" />
+    <Content Include="Content\LayoutAdmin\img\slider_r8.png" />
+    <Content Include="Content\LayoutAdmin\img\spinner-mini.gif" />
+    <Content Include="Content\LayoutAdmin\img\sprite.png" />
+    <Content Include="Content\LayoutAdmin\img\timeline-bg.png" />
+    <Content Include="Content\LayoutAdmin\img\timeline-left-arrow%402x.png" />
+    <Content Include="Content\LayoutAdmin\img\timeline-left-arrow.png" />
+    <Content Include="Content\LayoutAdmin\img\timeline-right-arrow%402x.png" />
+    <Content Include="Content\LayoutAdmin\img\timeline-right-arrow.png" />
+    <Content Include="Content\LayoutAdmin\img\toolbar.gif" />
+    <Content Include="Content\LayoutAdmin\img\toolbar.png" />
+    <Content Include="Content\LayoutAdmin\img\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\LayoutAdmin\img\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\LayoutAdmin\img\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\LayoutAdmin\img\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\LayoutAdmin\img\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\LayoutAdmin\img\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\LayoutAdmin\img\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\LayoutAdmin\img\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\LayoutAdmin\img\ui-icons_222222_256x240.png" />
+    <Content Include="Content\LayoutAdmin\img\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\LayoutAdmin\img\ui-icons_454545_256x240.png" />
+    <Content Include="Content\LayoutAdmin\img\ui-icons_888888_256x240.png" />
+    <Content Include="Content\LayoutAdmin\img\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\LayoutAdmin\img\uploadify-cancel.png" />
+    <Content Include="Content\LayoutAdmin\index.html" />
+    <Content Include="Content\LayoutAdmin\js\bootstrap.js" />
+    <Content Include="Content\LayoutAdmin\js\bootstrap.min.js" />
+    <Content Include="Content\LayoutAdmin\js\counter.js" />
+    <Content Include="Content\LayoutAdmin\js\custom.js" />
+    <Content Include="Content\LayoutAdmin\js\excanvas.js" />
+    <Content Include="Content\LayoutAdmin\js\fullcalendar.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery-1.9.1.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery-migrate-1.0.0.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery-ui-1.10.0.custom.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.chosen.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.cleditor.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.cookie.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.dataTables.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.elfinder.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.flot.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.flot.pie.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.flot.resize.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.flot.stack.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.gritter.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.imagesloaded.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.iphone.toggle.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.knob.modified.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.masonry.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.noty.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.raty.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.sparkline.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.ui.touch-punch.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.uniform.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.uploadify-3.1.min.js" />
+    <Content Include="Content\LayoutAdmin\js\modernizr.js" />
+    <Content Include="Content\LayoutAdmin\js\retina.js" />
+    <Content Include="Content\LayoutAdmin\login.html" />
+    <Content Include="Content\LayoutAdmin\messages.html" />
+    <Content Include="Content\LayoutAdmin\submenu.html" />
+    <Content Include="Content\LayoutAdmin\submenu2.html" />
+    <Content Include="Content\LayoutAdmin\submenu3.html" />
+    <Content Include="Content\LayoutAdmin\table.html" />
+    <Content Include="Content\LayoutAdmin\tasks.html" />
+    <Content Include="Content\LayoutAdmin\typography.html" />
+    <Content Include="Content\LayoutAdmin\ui.html" />
+    <Content Include="Content\LayoutAdmin\widgets.html" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="ImageClothes\AoMacNhaNam.jpg" />
+    <Content Include="ImageClothes\AoThunNuInHinh.jpg" />
+    <Content Include="ImageClothes\JeanNuRack.jpg" />
+    <Content Include="ImageClothes\JeanNuXanh.jpg" />
+    <Content Include="ImageClothes\JeanNuXanhDamTron.jpg" />
+    <Content Include="ImageClothes\JeanXanh.jpg" />
+    <Content Include="ImageClothes\JeanXanhTrang.jpg" />
+    <Content Include="ImageClothes\JeanĐencaocao.jpg" />
+    <Content Include="ImageClothes\JeanĐenNu.jpg" />
+    <Content Include="ImageClothes\QuaaJeanXanh.jpg" />
+    <Content Include="ImageClothes\Quần-ShortđenNam.jpg" />
+    <Content Include="ImageClothes\ShortJeanNư.jpg" />
+    <Content Include="ImageClothes\ShortKakiNamXam.jpg" />
+    <Content Include="ImageClothes\ShortNam-Đen.jpg" />
+    <Content Include="ImageClothes\ShortNamĐen.jpg" />
+    <Content Include="ImageClothes\ShortNhungTamNu.jpg" />
+    <Content Include="ImageClothes\ShortNuNgan.jpg" />
+    <Content Include="ImageClothes\ShortĐenNam.jpg" />
+    <Content Include="ImageClothes\SomiCaro.jpg" />
+    <Content Include="ImageClothes\SoMiCaroXanh.jpg" />
+    <Content Include="ImageClothes\SoMiNuCaro.jpg" />
+    <Content Include="ImageClothes\SoMiNuDo.jpg" />
+    <Content Include="ImageClothes\SomiNuKeDoc.jpg" />
+    <Content Include="ImageClothes\SoMiNuXanh.jpg" />
+    <Content Include="ImageClothes\SoMiSocTrang.jpg" />
+    <Content Include="ImageClothes\SoMiSocXanh.jpg" />
+    <Content Include="ImageClothes\ThunBaLo.jpg" />
+    <Content Include="ImageClothes\ThunNuHelloKitti.jpg" />
+    <Content Include="ImageClothes\THunNuTrang.jpg" />
+    <Content Include="ImageClothes\ThunSocTrang.jpg" />
+    <Content Include="ImageClothes\ThunTrang.jpg" />
+    <Content Include="ImageClothes\ThunTrangXanh.jpg" />
+    <Content Include="ImageClothes\ThunXanhNcBien.jpg" />
+    <Content Include="ImageClothes\THunXanhNu.jpg" />
+    <Content Include="image\account.jpg" />
     <Content Include="image\Address.png" />
     <Content Include="image\all_chothes.jpg" />
     <Content Include="image\Ao-so-mi.jpg" />
@@ -230,28 +452,46 @@
     <Content Include="image\phone.png" />
     <Content Include="image\shop.png" />
     <Content Include="image\time.png" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Model1.edmx">
+    <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\LayoutAdmin\font\fontawesome-webfont-0.eot" />
+    <Content Include="Content\LayoutAdmin\font\fontawesome-webfont-62877.eot" />
+    <Content Include="Content\LayoutAdmin\font\fontawesome-webfont-62877.ttf" />
+    <Content Include="Content\LayoutAdmin\font\fontawesome-webfont-62877.woff" />
+    <Content Include="Content\LayoutAdmin\font\glyphicons-regular-0.eot" />
+    <Content Include="Content\LayoutAdmin\font\glyphicons-regular.eot" />
+    <Content Include="Content\LayoutAdmin\font\glyphicons-regular.ttf" />
+    <Content Include="Content\LayoutAdmin\font\glyphicons-regular.woff" />
+    <Content Include="Content\LayoutAdmin\font\glyphiconshalflings-regular-0.eot" />
+    <Content Include="Content\LayoutAdmin\font\glyphiconshalflings-regular.eot" />
+    <Content Include="Content\LayoutAdmin\font\glyphiconshalflings-regular.ttf" />
+    <Content Include="Content\LayoutAdmin\font\glyphiconshalflings-regular.woff" />
+    <Content Include="Content\LayoutAdmin\README.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -261,6 +501,72 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="tinymce\changelog.txt" />
+    <Content Include="tinymce\js\tinymce\jquery.tinymce.min.js" />
+    <Content Include="tinymce\js\tinymce\license.txt" />
+    <Content Include="tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojis.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojis.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\quickbars\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\skins\content\dark\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\content\default\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\content\document\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\content\writer\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\content.inline.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\content.mobile.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\skin.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\skin.mobile.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\content.inline.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\content.mobile.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\skin.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\skin.mobile.min.css" />
+    <Content Include="tinymce\js\tinymce\themes\mobile\theme.min.js" />
+    <Content Include="tinymce\js\tinymce\themes\silver\theme.min.js" />
+    <Content Include="tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -271,7 +577,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -306,11 +611,61 @@
     <Content Include="Views\Footer\PayMothod.cshtml" />
     <Content Include="Views\Footer\TransitMothod.cshtml" />
     <Content Include="Views\Footer\Address.cshtml" />
-    <Content Include="Views\TrangChu\ChiTietSanPham.cshtml" />
+    <Content Include="Views\SanPham\ChiTietSanPham.cshtml" />
     <Content Include="Views\NhanVien\SanPham.cshtml" />
     <Content Include="Views\NhanVien\Login.cshtml" />
-    <Content Include="Views\TrangChu\ThanhToan.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\SanPham\SanPhamPartial.cshtml" />
+    <Content Include="Views\DanhMuc\DanhMucPartial.cshtml" />
+    <Content Include="Views\DanhMuc\SanPhamTheoDM.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\DanhMuc\LocSP.cshtml" />
+    <Content Include="Views\DanhMuc\SPTheoDMPartial.cshtml" />
+    <Content Include="Views\Regester\RegesterPartial.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Views\NhanVien\QuanLySanPham.cshtml" />
+    <Content Include="Views\NhanVien\ThemMoi.cshtml" />
+    <Content Include="tinymce\js\tinymce\langs\readme.md" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\fonts\tinymce-mobile.woff" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
+    <Content Include="Views\NhanVien\ChinhSua.cshtml" />
+    <Content Include="Views\NhanVien\HienThi.cshtml" />
+    <Content Include="Views\NhanVien\Xoa.cshtml" />
+    <Content Include="Views\NhanVien\QuanLyKhachHang.cshtml" />
+    <Content Include="Views\NhanVien\LayDM.cshtml" />
+    <Content Include="Views\Shared\_LayoutQuanLy.cshtml" />
+    <Content Include="Views\Admin\QuanLyNhanVien.cshtml" />
+    <Content Include="Views\Admin\ChiTiet.cshtml" />
+    <Content Include="Views\Admin\Xoa.cshtml" />
+    <Content Include="Views\Admin\ThemMoi.cshtml" />
+    <Content Include="Views\Admin\QuanLyKhachHang.cshtml" />
+    <Content Include="Views\Admin\DaThanhToan.cshtml" />
+    <Content Include="Views\Admin\ChiTietHoaDon.cshtml" />
+    <Content Include="Views\Admin\XoaHoaDon.cshtml" />
+    <Content Include="Views\Admin\ThongKeSanPham.cshtml" />
+    <Content Include="Views\NhanVien\Account.cshtml" />
+    <Content Include="Views\NhanVien\infor.cshtml" />
+    <Content Include="Views\NhanVien\EditInfor.cshtml" />
+    <Content Include="Views\NhanVien\EditPass.cshtml" />
+    <Content Include="Views\Admin\Account.cshtml" />
+    <Content Include="Views\KhachHang\EditInfor.cshtml" />
+    <Content Include="Views\KhachHang\infor.cshtml" />
+    <Content Include="Views\KhachHang\InforPartial.cshtml" />
+    <Content Include="Views\KhachHang\EditInforPartial.cshtml" />
+    <Content Include="Views\KhachHang\EditPass.cshtml" />
+    <Content Include="Views\KhachHang\EditPassPartial.cshtml" />
+    <Content Include="Views\DanhMuc\DMLoc.cshtml" />
+    <Content Include="Views\TimKiem\KetQuaTimKiem.cshtml" />
+    <Content Include="Views\GioHang\ChiTietGioHang.cshtml" />
+    <Content Include="Views\NhanVien\XacNhanHoaDon.cshtml" />
+    <Content Include="Views\NhanVien\ChiTietHoaDon.cshtml" />
+    <Content Include="Views\Admin\ChuaThanhToan.cshtml" />
+    <Content Include="Views\Admin\EditInfor.cshtml" />
+    <Content Include="Views\Admin\EditPass.cshtml" />
+    <Content Include="Views\Admin\infor.cshtml" />
+    <Content Include="Views\GioHang\GetSL.cshtml" />
+    <Content Include="Views\KhachHang\TinhTrangDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -321,7 +676,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

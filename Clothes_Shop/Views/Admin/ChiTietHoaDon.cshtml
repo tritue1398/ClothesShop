@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Clothes_Shop.Models.ChiTietHD>
+
+@{
+    ViewBag.Title = "ChiTietHoaDon";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h2>Chi tiết hóa đơn</h2>
+@if (TempData["status"] == "true")
+{
+    <p>
+        @Html.ActionLink("Trở về", "DaThanhToan")
+    </p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Trở về", "ChuaThanhToan")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Mã sản phẩm")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SANPHAM.TENSP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SANPHAM.SIZE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SANPHAM.ANHSP)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.SOLUONG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DONGIA)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MASP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SANPHAM.TENSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SANPHAM.SIZE)
+            </td>
+            <td>
+                <img style="height: 100px;" src="@Url.Content("~/ImageClothes/"+item.SANPHAM.ANHSP)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SOLUONG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DONGIA)
+            </td>
+
+        </tr>
+    }
+
+</table>

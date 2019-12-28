@@ -1,0 +1,165 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using Clothes_Shop.Models;
+@model IPagedList<SANPHAM>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="~/Content/format.css" />
+    <link href="~/Content/LayoutAdmin/css/form.css" rel="stylesheet" />
+    <title>Trang chủ</title>
+</head>
+<body>
+
+    <div id="banner">
+        <div class="image">
+            <a href="~/TrangChu/Index"><img src="~/image/Home.jpg" /></a>
+        </div>
+        @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post))
+        {
+            <div class="search">
+                @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập tên sản phẩm cần tìm" })
+                <button title="Tìm kiếm" type="submit" style="cursor:pointer"> <img src="~/image/find.png" /></button>
+            </div>
+        }
+        <div class="regester">
+            @Html.Action("RegesterPartial", "Regester")
+        </div>
+        <div class="basket">
+            @Html.Action("GioHangPartial", "GioHang")
+        </div>
+    </div>
+    <!--End banner-->
+    <div id="head">
+        <div class="phone">
+            <img src="~/image/phone.png" />
+            <span> Hỗ trợ đặt hàng nhanh:  </span>
+            <span style="color:red"> &nbsp;0344359333</span>
+        </div>
+        <div class="connect">
+            <span>Liên hệ &nbsp; </span> <span><a href="https://www.facebook.com/duong.tritue.9" target="_blank"><img src="~/image/Facebook.png" /></a></span>
+            <span><a href="https://www.instagram.com/_tri.tue98/?hl=en" target="_blank"><img src="~/image/Instagram.png" /></a></span>
+            <span>|</span>
+            <span> <a href="#"> Thông báo</a> </span> <span><a href="#"><img src="~/image/notice.png" /></a></span>
+            <span>|</span>
+            <span><a href="https://help.shopee.vn/vn/s/" target="_blank"> Trợ giúp</a></span>
+            <span> <a href="https://help.shopee.vn/vn/s/" target="_blank"><img src="~/image/help.png" /></a></span>
+        </div>
+    </div>
+    <!--End Head-->
+    <div id="title">
+        @Html.Action("DanhMucPartial", "DanhMuc")
+    </div>
+    <!--End title-->
+    <div id="content">
+        <div class="left">
+            <div class="box-cha">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <div class="box-con">
+
+                            <div class="box-image">
+                                <a href="@Url.Action("ChiTietSanPham","SanPham",new{@masp=item.MASP})"><img src="@Url.Content("~/ImageClothes/"+item.ANHSP)" /></a>
+                            </div>
+                            <a href="@Url.Action("ChiTietSanPham","SanPham",new{@masp=item.MASP})">@item.TENSP</a>
+                            <p>Size: @item.SIZE</p>
+                            <p>@item.GIABD đ</p>
+                        </div>
+
+                    }
+                }
+
+            </div>
+            <br />
+            <div class="box-trang">
+
+                <div class="MenuTrang">
+                    <p style="margin-left: 40px;">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount</p>
+                    @Html.PagedListPager(Model, page => Url.Action("SanPhamTheoDM", "DanhMuc", new { @tuKhoa = ViewBag.TuKhoa, page = page }))
+                </div>
+                <style>
+                    .MenuTrang li {
+                        display: inline;
+                    }
+                </style>
+            </div>
+        </div>
+        <div class="right">
+            <img src="~/image/find-icon.png" />
+            <b> BỘ LỌC TÌM KIẾM</b>
+            @Html.Action("DMLoc", "DanhMuc")
+            <div class="submit">
+                <a href="~/TrangChu/Index"><button>Xóa tất cả </button></a>
+            </div>
+            <div class="introduce">
+                <div class="introduce-tittle">
+                    <b> Fashion-Yên tâm mua sắm</b>
+                </div>
+                <div class="introduce-content">
+                    <img src="~/image/Heart.png" /> <span>ĐỒ ĐẸP - GIÁ HỢP LÝ</span> <br />
+                    <img src="~/image/Heart.png" /> <span>Chất lượng TỐT - Chọn lọc kỹ </span><br />
+                    <img src="~/image/Heart.png" /><span>Không vừa được đổi size </span><br />
+                    <img src="~/image/Heart.png" /><span>Giao hàng Toàn quốc</span><br />
+
+                </div>
+            </div>
+        </div>
+        <!--End content Right-->
+    </div>
+    <!--End content-->
+    <div id="footer">
+        <div class="address">
+            <h3>FASHION</h3>
+
+            <span>Fashion chuyên bán các loại sản phẩm quần áo thời trang  online với hàng ngàn mẫu mã để quý khách lựa chọn.</span><br />
+            <span> Hãy đặt hàng online để được hưởng nhiều ưu đãi hơn.</span><br />
+            <span> Chọn mua ngay các mẫu quần áo thời trang mới nhất 2019, hàng đẹp giá cực tốt.</span><br />
+
+
+            <span><img src="~/image/shop.png" /></span>
+            <span>Nhà 23/6, Đường 12, khu phố 2, phường Linh Chiểu, Quận Thủ Đức, To.HCM</span> <br />
+
+            <span> <img src="~/image/phone.png" /> </span>
+            <span>ĐT: 0383592126</span> <br />
+
+            <span><img src="~/image/time.png" /></span>
+            <span>Giờ mở cửa: T2 - T7: 8h00 - 21h30; CN: 9h00 - 17h30</span><br />
+
+            <span><img src="~/image/phone.png" /></span>
+            <span>Hotline: 0344359333</span><br />
+        </div>
+
+        <div class="policy">
+            <h3>CHÍNH SÁCH BÁN HÀNG</h3>
+            <ul>
+                <li><a href="~/Footer/Index"> Thông tin về cửa hàng</a></li>
+                <li><a href="~/Footer/PayMothod"> Phương thức thanh toán </a></li>
+                <li><a href="~/Footer/TransitMothod"> Phương thức vận chuyển</a></li>
+                <li><a href="~/Footer/Address"> Địa chỉ shop FASHION</a></li>
+
+            </ul>
+        </div>
+        <div class="acount">
+            <h3>TÀI KHOẢN</h3>
+            <ul>
+                <li><a href="~/Regester/Login">Đăng nhập</a></li>
+                <li><a href="~/Regester/Index">Đăng kí tài khoản</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!--End footer-->
+
+
+</body>
+</html>

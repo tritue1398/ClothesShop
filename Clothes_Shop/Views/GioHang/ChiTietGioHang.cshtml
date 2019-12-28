@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Clothes_Shop.Models.Gio>
+
+
+    
+    <div class="basket-product-detail-box">
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.tenSP)
+                </td>
+                <td>
+                    <div class="box">
+                        <img src="@Url.Content("~/ImageClothes/"+item.image)" />
+                    </div>
+                </td>
+                <td>
+                    @Html.Display(@String.Format("{0:0,0}", item.donGia.ToString()))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.soLuong)
+                </td>
+                <td>
+                    @Html.Display(@String.Format("{0:0,0}", item.ThanhTien.ToString()))
+                </td>
+                <td>
+                    <a href="@Url.Action("XoaGioHang","GioHang", new { @ma = item.maSP })">Xóa</a>
+                </td>
+
+            </tr>
+        }
+    </div>

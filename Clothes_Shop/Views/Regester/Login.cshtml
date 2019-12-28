@@ -23,13 +23,10 @@
             <button title="Tìm kiếm" type="submit" style="cursor:pointer"> <img src="~/image/find.png" /></button>
         </div>
         <div class="regester">
-            <ul>
-                <li><a href="~/Regester/Login"> Đăng nhập</a></li>
-                <li><a href="~/Regester/Index">Đăng kí</a></li>
-            </ul>
+            @Html.Action("RegesterPartial", "Regester")
         </div>
         <div class="basket">
-            <a href="#"><img src="~/image/basket.png" alt="Giỏ hàng" /></a>
+            @Html.Action("GioHangPartial", "GioHang")
         </div>
     </div>
     <!--End banner-->
@@ -51,50 +48,35 @@
     </div>
     <!--End Head-->
     <div id="title">
-        <ul>
-            <li>
-                <a href="#">THỜI TRANG NAM</a>
-                <ul>
-                    <li><a href="#">Quần Jean</a> </li>
-                    <li><a href="#">Quần short</a> </li>
-                    <li><a href="#">Áo sơ mi</a></li>
-                    <li><a href="#">Áo thun</a></li>
-                </ul>
-            </li>
-            <!--thời trang nữ-->
-            <li>
-                <a href="#">THỜI TRANG NỮ</a>
-                <ul>
-                    <li> <a href="#">Quần Jean</a> </li>
-                    <li><a href="#">Quần short</a> </li>
-                    <li><a href="#">Áo sơ mi</a></li>
-                    <li><a href="#">Áo thun</a></li>
-                </ul>
-            </li>
-        </ul>
+        @Html.Action("DanhMucPartial", "DanhMuc")
     </div>
     <!--End title-->
+@using (Html.BeginForm())
+{
+<div id="login">
+    <div class="box">
+        <h3>ĐĂNG NHẬP</h3>
+        <span>Tên tài khoản*</span><br />
+        <input name="txtTaiKhoan" type="text" placeholder="Tên tài khoản" /><br />
 
-    <div id="login">
-        <div class="box">
-            <h3>ĐĂNG NHẬP</h3>
-            <span>Tên tài khoản*</span><br />
-            <input type="text" placeholder="Tên tài khoản" /><br />
+        <span> Mật khẩu*</span><span> <a href="#">Quên mật khẩu? </a></span>
+        <input name="txtMatKhau" type="password" placeholder="Mật khẩu" />
+        <span><a href="~/Regester/Index">Đăng kí tài khoản mới </a></span>
 
-            <span> Mật khẩu*</span><span> <a href="#">Quên mật khẩu? </a></span>
-            <input type="password" placeholder="Mật khẩu" />
-            <span><a href="~/Regester/Index">Đăng kí tài khoản mới </a></span>
-
-            <div class="login_">
-                <input type="checkbox" /> Nhớ đăng nhập <br />
-                <input type="submit" value="ĐĂNG NHẬP" />
+        <div class="login_">
+            <b></b> <br />
+            <input type="submit" value="ĐĂNG NHẬP" name="btnSubit" />
 
 
-            </div>
         </div>
-
-
+        <h3>@ViewBag.ThongBao</h3>
     </div>
+    
+
+
+</div>
+}
+    
     <div id="footer">
         <div class="address">
             <h3>FASHION</h3>

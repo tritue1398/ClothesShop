@@ -1,0 +1,115 @@
+﻿@model Clothes_Shop.Models.SANPHAM
+
+@{
+    ViewBag.Title = "HienThi";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Thông tin</h2>
+
+<div id="infor">
+    <h4>Sản phẩm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MASP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MASP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TENSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ANHSP)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/ImageClothes/"+Model.ANHSP)" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SIZE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SIZE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.THUONGHIEU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THUONGHIEU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHATLIEU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHATLIEU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MOTA)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.MOTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIABD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIABD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYDANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDANG)
+        </dd>
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAISANPHAM.TENLSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAISANPHAM.TENLSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiTinh.GT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh.GT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { @maSP=Model.MASP }) |
+    @Html.ActionLink("Trở về", "QuanLySanPham")
+</p>

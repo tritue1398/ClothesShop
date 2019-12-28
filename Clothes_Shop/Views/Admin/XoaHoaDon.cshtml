@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Clothes_Shop.Models.ChiTietHD>
+
+@{
+    ViewBag.Title = "XoaHoaDon";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h2>Xóa hóa đơn</h2>
+
+@using (Html.BeginForm(new { @maHD = Model.First().MAHD }))
+{
+    @Html.AntiForgeryToken()
+    if (TempData["status"] == "true")
+    {
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa"  /> |
+            @Html.ActionLink("Trở về", "DaThanhToan")
+        </div>
+    }
+    else
+    {
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "ChuaThanhToan")
+        </div>
+    }
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MASP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SANPHAM.TENSP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SANPHAM.SIZE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SANPHAM.ANHSP)
+        </th>
+        <th>
+            @Html.DisplayName("Số lượng")
+        </th>
+        <th>
+            @Html.DisplayName("Đơn giá")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MASP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SANPHAM.TENSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SANPHAM.SIZE)
+            </td>
+           
+            <td>
+                <img style="height: 100px;" src="@Url.Content("~/ImageClothes/"+item.SANPHAM.ANHSP)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SOLUONG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DONGIA)
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,66 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.PagedList<Clothes_Shop.Models.HOADON>
+
+@{
+    ViewBag.Title = "XacNhanHoaDon";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Xac nhận tình trạng hóa đơn</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Mã hóa đơn")
+        </th>
+        <th>
+            @Html.DisplayName("Khách hàng")
+        </th>
+
+
+        <th>
+            @Html.DisplayName("Ngày đặt")
+        </th>
+        <th>
+            @Html.DisplayName("Tổng tiền")
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MAHD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACHHANG.HOTEN)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.NGAYDAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TONGTIEN)
+            </td>
+            <td>
+                @Html.ActionLink("Chi tiết", "ChiTietHoaDon", new { @maHD = item.MAHD }) |
+                @Html.ActionLink("Đã thanh toán", "XacNhanThanhToan", new { @maHD = item.MAHD })
+            </td>
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("QuanLyHoaDon", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

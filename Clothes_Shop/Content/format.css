@@ -9,7 +9,7 @@
 #content{width:100%;  background-color:red; z-index:1; height:auto;}
 #content .left{ width:80%; position:relative;  background-color:whitesmoke;float:left;}
 #content .right{  width:20%;   float:left;  height:auto; background-color:whitesmoke; text-align:center;}
-#footer{    width:100%;    height:300px;    background-color:#a8e5ec;    float:left;}
+#footer{   width:100%;    height:300px;    background-color:#a8e5ec;    float:left;}
 
 /*CSS phần trong bannner*/
 #banner .image{    margin-left: 100px;    margin-top:5px;     height:55px;     float:left;     }
@@ -49,13 +49,49 @@
 #title a:hover{  color:red;}
 
 /* Css phần tạo tài khoản*/
+
 #content .left h4 {    color:darkblue;    font-size:20px;    text-align:center;}
-#content .left span{    margin-left:10%;    line-height:5px;    font-size:15px;   }
-#content .left input{    width:750px;    height:30px;    margin-left:10%;    padding:5px;    margin-bottom:20px;}
-#content .left button{  margin-left:10%;  background-color:cornflowerblue;  cursor:pointer;   width:765px;
-                       line-height:30px;  color:white;}
+#content .left span{    margin-left:20%;    line-height:5px;    font-size:15px;    }
+#content .left input{    width:400px;    height:20px;    margin-left:20%;    padding:5px;    margin-bottom:20px;}
+#content .left button{  margin-left: 30%; background-color:cornflowerblue;  cursor:pointer;   width:100px;
+                       line-height:30px;  color:white;  }
 #content .left button:hover{  background-color:red;}
 #content .right h3{    margin-top:50px;}
+#content .left #spanHoTen {
+    margin-left: 0%;
+    line-height: 5px;
+    font-size: 15px;
+}
+#content .left #spanTaiKhoan {
+    margin-left: 0%;
+    line-height: 5px;
+    font-size: 15px;
+}
+#content .left #spanPass{
+    margin-left: 0%;
+    line-height: 5px;
+    font-size: 15px;
+}
+#content .left #spanEnterPass {
+    margin-left: 0%;
+    line-height: 5px;
+    font-size: 15px;
+}
+#content .left #spanEmail {
+    margin-left: 0%;
+    line-height: 5px;
+    font-size: 15px;
+}
+#content .left #spanDiaChi {
+    margin-left: 0%;
+    line-height: 5px;
+    font-size: 15px;
+}
+#content .left #spanSoDT{
+    margin-left: 0%;
+    line-height: 5px;
+    font-size: 15px;
+}
 /*Css phần log in*/
 #login { width:100%;height:400px;}
 #login .box h3{    text-align:center;}
@@ -94,7 +130,15 @@
 #footer_info .address b{   color:black;}
  
 /*Css phần content left 80%*/
-#content .left .box-cha{width:1020px;height:800px;margin-left:55px;}
+#content .left .
+-trang {
+    width: 1020px;
+    height:50px;
+    margin-left: 55px;
+    margin-bottom: 100px;
+}
+
+#content .left .box-cha{width:1020px;height: 1100px;margin-left:55px; margin-bottom:0px;}
 #content .left .box-con{ width:235px; height:400px; border:1px solid #ebebe0; float:left; margin:7px 10px 7px 7px; text-align:center;}
 #content .left .box-image{width:235px;height:280px;margin-bottom:10px;}
 #content .left .box-con:hover{border:1px solid red;}
@@ -169,26 +213,26 @@
 #content-thanhtoan .basket-product{width:95%;height:70px; margin:10px auto;background-color:white; }
 #content-thanhtoan .basket-product b{color:red;padding-left:30px; }
 #content-thanhtoan .basket-product ul {list-style:none; float:right;}
-#content-thanhtoan .basket-product ul li{ float:left; margin-right:100px;line-height:40px;color:gray;} 
+#content-thanhtoan .basket-product ul li{ float:left; margin-right:120px;line-height:40px;color:gray;} 
 
 #content-thanhtoan .basket-product-detail{width:95%;height:auto; margin:10px auto;background-color:white; text-align:center; }
 
 #content-thanhtoan .basket-product-detail  .basket-product-detail-box{border-bottom:1px dashed gray;width:100%;height:140px;text-align:center;}
 #content-thanhtoan .basket-product-detail ul {list-style:none; float:right;}
-#content-thanhtoan .basket-product-detail ul li{ float:left; margin-right:100px;line-height:40px;color:gray;}
+#content-thanhtoan .basket-product-detail ul li{ float:left; margin-right:140px;line-height:40px;color:gray;}
 #content-thanhtoan .basket-product-detail a{text-decoration:none;color:gray;}
 #content-thanhtoan .basket-product-detail a:hover{color:red; }
 #content-thanhtoan .basket-product-detail input[type="text"]{width:30px;text-align:center;}
 #content-thanhtoan .basket-product-detail button:hover{cursor:pointer; }
-#content-thanhtoan .basket-product-detail .box{width:100px;height:120px; margin:-10px -280px; border:1px solid blue;}  
-#content-thanhtoan .basket-product-detail .box img{max-width:150px;max-height:120px; } 
+#content-thanhtoan .basket-product-detail .box{width:100px;height:120px; margin:-10px -230px; border:1px solid blue;}  
+#content-thanhtoan .basket-product-detail .box img{max-width:100px;max-height:120px; } 
  
 #content-thanhtoan .basket-product-pay-method{ width:95%;height:100px; margin:10px auto;background-color:white; }
 #content-thanhtoan .basket-product-pay-method b{color:red;padding-left:30px; }
 #content-thanhtoan .basket-product-pay-method .text {float:right;margin-right:100px; }
 #content-thanhtoan .basket-product-pay-method .sum-money{margin-left:30px;line-height:40px;}
-#content-thanhtoan .basket-product-pay-method button{width:400px;height:35px;margin-left:250px;margin-top:20px;background-color:#6495ed;}
-#content-thanhtoan .basket-product-pay-method button:hover{background-color:red;color:white; cursor:pointer; }
+#content-thanhtoan .basket-product-pay-method input{width:400px;height:35px;margin-left:250px;margin-top:20px;background-color:#6495ed;}
+#content-thanhtoan .basket-product-pay-method input:hover{background-color:red;color:white; cursor:pointer; }
 
 /*Css phần admin*/
 #banner .admin{text-align:center;}

@@ -1,0 +1,189 @@
+﻿@using Clothes_Shop.Models;
+@model SANPHAM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="~/Content/format.css" />
+    <link href="~/Content/LayoutAdmin/css/form.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.js" type="text/javascript"></script>
+    <title>Detail SP</title>
+</head>
+<body>
+
+    <div id="banner">
+        <div class="image">
+            <a href="~/TrangChu/Index"><img src="~/image/Home.jpg" /></a>
+        </div>
+        @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post))
+        {
+            <div class="search">
+                @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập tên sản phẩm cần tìm" })
+                <button title="Tìm kiếm" type="submit" style="cursor:pointer"> <img src="~/image/find.png" /></button>
+            </div>
+        }
+        <div class="regester">
+            @Html.Action("RegesterPartial", "Regester")
+        </div>
+        <div class="basket">
+            @Html.Action("GioHangPartial", "GioHang")
+        </div>
+    </div>
+    <!--End banner-->
+    <div id="head">
+        <div class="phone">
+            <img src="~/image/phone.png" />
+            <span> Hỗ trợ đặt hàng nhanh:  </span>
+            <span style="color:red"> &nbsp;0344359333</span>
+        </div>
+        <div class="connect">
+            <span>Liên hệ &nbsp; </span> <span><a href="https://www.facebook.com/duong.tritue.9" target="_blank"><img src="~/image/Facebook.png" /></a></span>
+            <span><a href="https://www.instagram.com/_tri.tue98/?hl=en" target="_blank"><img src="~/image/Instagram.png" /></a></span>
+            <span>|</span>
+            <span> <a href="#"> Thông báo</a> </span> <span><a href="#"><img src="~/image/notice.png" /></a></span>
+            <span>|</span>
+            <span><a href="https://help.shopee.vn/vn/s/" target="_blank"> Trợ giúp</a></span>
+            <span> <a href="https://help.shopee.vn/vn/s/" target="_blank"><img src="~/image/help.png" /></a></span>
+        </div>
+    </div>
+    <!--End Head-->
+    <div id="title">
+        @Html.Action("DanhMucPartial", "DanhMuc")
+    </div>
+    <!--End title-->
+    <div id="content-chitietsp">
+
+        <div class="info">
+            <div class="box-image">
+                <img src="@Url.Content("~/ImageClothes/"+Model.ANHSP)" />
+            </div>
+            <div class="box-buy">
+                <p>Áo polo in hình</p>
+                <div class="box-price">
+                    <p>@Model.GIABD<sup>đ</sup></p>
+                </div>
+                <br />
+                <span>Size: @Model.SIZE</span>
+                <br />
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @ma = Model.MASP, @url = Request.Url.ToString() }))
+                {
+                    <br />
+                    <span>Số lượng:</span>
+                    string n;
+                    if (TempData["SLT"] != null)
+                    {
+                        <input style="width: 50px;" type="number" min="0" max="@TempData["SLT"]" value="1" name="txtsl" id="txtSL" />
+                         n = String.Format("{0}", Request.QueryString["txtSL"]);
+                        <span>Số lượng còn lại: <span>@TempData["SLT"]</span></span> <br />
+                    }
+                    else
+                    {
+                        <input style="width: 50px;" type="number" min="0" max="@Model.SoLuongTon" value="1" name="txtsl" id="txtSL" />
+                        n = String.Format("{0}", Request.QueryString["txtSL"]);
+                        <span>Số lượng còn lại: <span>@Model.SoLuongTon</span></span> <br />
+                    }
+                    <input class="them-vao-gio" type="submit" id="them" name="command" value="Thêm vào giỏ hàng" />
+                    <input class="mua-ngay" type="submit" id="mua-ngay" name="command" value="Mua ngay" />
+
+
+                }
+                @if (TempData["LoginMessage"] != null)
+                {
+                    <div id="login_message" class="alert alert-danger hide" role="alert">
+                        @TempData["LoginMessage"]
+                    </div>
+                }
+
+
+            </div>
+           
+            <!--End info-->
+            <div class="detail">
+                <div class="box-detail">
+                    <b>CHI TIẾT SẢN PHẨM</b>
+                </div>
+                <span class="title">Thương hiệu:</span> <span class="mota">@Model.THUONGHIEU</span><br />
+                <span class="title">Chất liệu:</span> <span class="mota">@Model.CHATLIEU</span><br />
+                <span class="title">Mô tả sản phẩm:</span>
+                <span class="mota">
+                    @Model.MOTA
+                </span> <br />
+            </div>
+            <!--End Detail -->
+        </div>
+
+
+    </div>
+    <!--End content-chitietsp-->
+    <div id="footer">
+        <div class="address">
+            <h3>FASHION</h3>
+
+            <span>Fashion chuyên bán các loại sản phẩm quần áo thời trang  online với hàng ngàn mẫu mã để quý khách lựa chọn.</span><br />
+            <span> Hãy đặt hàng online để được hưởng nhiều ưu đãi hơn.</span><br />
+            <span> Chọn mua ngay các mẫu quần áo thời trang mới nhất 2019, hàng đẹp giá cực tốt.</span><br />
+
+
+            <span><img src="~/image/shop.png" /></span>
+            <span>Nhà 23/6, Đường 12, khu phố 2, phường Linh Chiểu, Quận Thủ Đức, To.HCM</span> <br />
+
+            <span> <img src="~/image/phone.png" /> </span>
+            <span>ĐT: 0383592126</span> <br />
+
+            <span><img src="~/image/time.png" /></span>
+            <span>Giờ mở cửa: T2 - T7: 8h00 - 21h30; CN: 9h00 - 17h30</span><br />
+
+            <span><img src="~/image/phone.png" /></span>
+            <span>Hotline: 0344359333</span><br />
+        </div>
+
+        <div class="policy">
+            <h3>CHÍNH SÁCH BÁN HÀNG</h3>
+            <ul>
+                <li><a href="~/Footer/Index"> Thông tin về cửa hàng</a></li>
+                <li><a href="~/Footer/PayMothod"> Phương thức thanh toán </a></li>
+                <li><a href="~/Footer/TransitMothod"> Phương thức vận chuyển</a></li>
+                <li><a href="~/Footer/Address"> Địa chỉ shop FASHION</a></li>
+
+            </ul>
+        </div>
+        <div class="acount">
+            <h3>TÀI KHOẢN</h3>
+            <ul>
+                <li><a href="~/Regester/Login">Đăng nhập</a></li>
+                <li><a href="~/Regester/Index">Đăng kí tài khoản</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!--End footer-->
+
+    <script type="text/javascript">
+        var sl = 1;
+        $('#btnGiam').click(function () {
+            if (sl > 1) {
+                sl = sl - 1;
+                $('#txtSL').val(sl);
+            }
+
+        });
+        $('#btnTang').click(function () {
+            sl = sl + 1;
+            $('#txtSL').val(sl);
+        });
+        
+    
+        $('#login_message').removeClass('hide');
+        $('#login_message').delay(1000).slideUp(500);
+    </script>
+</body>
+</html>
+
+

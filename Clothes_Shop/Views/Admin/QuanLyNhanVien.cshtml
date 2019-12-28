@@ -1,0 +1,66 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.PagedList<Clothes_Shop.Models.NHANVIEN>
+
+@{
+    ViewBag.Title = "QuanLyNhanVien";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h2>Quản lý nhân viên</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "ThemMoi")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MANV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().HOTEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MAGT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DIACHI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DIENTHOAI)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MANV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HOTEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh.GT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMAIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIACHI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIENTHOAI)
+            </td>
+            <td>
+                @Html.ActionLink("Chi tiết", "ChiTiet", new { @maNV=item.MANV }) |
+                @Html.ActionLink("Xóa", "Xoa", new { @maNV=item.MANV })
+            </td>
+        </tr>
+    }
+
+</table>

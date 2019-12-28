@@ -1,0 +1,34 @@
+﻿@using Clothes_Shop.Models
+
+@if (Session["NhanVien"] == null)
+{
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="halflings-icon white user"></i> Dennis Ji
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li class="dropdown-menu-title">
+            <span>Account Settings</span>
+        </li>
+        <li><a href="#"><i class="halflings-icon user"></i> Thông tin tài khoản</a></li>
+        <li><a href="login.html"><i class="halflings-icon off"></i> Đăng xuất</a></li>
+    </ul>
+}
+else
+{
+    NHANVIEN nv = Session["NhanVien"] as NHANVIEN;
+    string hoten = nv.HOTEN;
+    int idx = hoten.LastIndexOf(" ");
+    string ten = hoten.Substring(idx + 1);
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="halflings-icon white user"></i> @ten
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li class="dropdown-menu-title">
+            <span>Account Settings</span>
+        </li>
+        <li><a href="@Url.Action("infor","NhanVien")"><i class="halflings-icon user"></i> Thông tin tài khoản</a></li>
+        <li><a href="@Url.Action("Logout","NhanVien")"><i class="halflings-icon off"></i> Đăng xuất</a></li>
+    </ul>
+}

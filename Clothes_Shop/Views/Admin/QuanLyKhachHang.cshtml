@@ -1,0 +1,76 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.PagedList<Clothes_Shop.Models.KHACHHANG>
+
+@{
+    ViewBag.Title = "QuanLyKhachHang";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h2>Quan lý khách hàng</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MAKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().HOTEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TAIKHOAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MATKHAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DIACHI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DIENTHOAI)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MAKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HOTEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TAIKHOAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MATKHAU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMAIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIACHI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIENTHOAI)
+            </td>
+            
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("QuanLyKhachHang", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

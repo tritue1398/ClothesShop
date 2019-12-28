@@ -1,0 +1,70 @@
+﻿@model Clothes_Shop.Models.NHANVIEN
+
+@{
+    ViewBag.Title = "infor";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+
+}
+
+<h2>Thông tin tài khoản</h2>
+
+<div id="infor">
+   
+    <hr />
+    <dl class="dl-horizontal">
+       
+        <dt style="margin-top: 10px">
+            @Html.DisplayNameFor(model => model.HOTEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOTEN)
+        </dd>
+
+        <dt style="margin-top: 10px">
+            @Html.DisplayNameFor(model => model.MATKHAU)
+        </dt>
+
+        <dd>
+            @Html.Raw("\u2022\u2022\u2022\u2022\u2022")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIACHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIENTHOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIENTHOAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAGT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh.GT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa thông tin", "EditInfor", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Đổi mật khẩu", "EditPass")|
+    @Html.ActionLink("Trở về", "Index")
+</p>

@@ -1,0 +1,11 @@
+﻿@model Clothes_Shop.Models.LOAISANPHAM
+
+<option value="">--Chọn loại sản phẩm--</option>
+
+@if(ViewBag.MaLSP!=null)
+{
+    foreach(var item in ViewBag.MaLSP)
+    {
+        <option value="@item.Value">@item.Text</option>
+    }
+}

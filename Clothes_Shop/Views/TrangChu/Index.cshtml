@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Clothes_Shop.Models.DanhMucLocList
+
+@{
     Layout = null;
 }
 
@@ -9,8 +11,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="~/Content/LayoutAdmin/css/form.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/Content/format.css" />
     <title>Trang chủ</title>
+
 </head>
 <body>
    
@@ -18,19 +22,21 @@
         <div class="image">
             <a href="~/TrangChu/Index"><img src="~/image/Home.jpg" /></a>
         </div>
-        <div class="search">
-            <input type="text" placeholder="Tìm kiếm sản phẩm" />
-            <button title="Tìm kiếm" type="submit" style="cursor:pointer"> <img src="~/image/find.png" /></button>
-        </div>
+        @using (Html.BeginForm("KetQuaTimKiem", "TimKiem",FormMethod.Post))
+        {
+            <div class="search">
+                @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập tên sản phẩm cần tìm" })
+                <button title="Tìm kiếm" type="submit" style="cursor:pointer"> <img src="~/image/find.png" /></button>
+            </div>
+        }
         <div class="regester">
-            <ul>
-                <li><a href="~/Regester/Login"> Đăng nhập</a></li>
-                <li><a href="~/Regester/Index">Đăng kí</a></li>
-            </ul>
+            @Html.Action("RegesterPartial", "Regester")
         </div>
         <div class="basket">
-            <a href="#"><img src="~/image/basket.png" alt="Giỏ hàng" /></a>
+            @Html.Action("GioHangPartial", "GioHang")
         </div>
+       
+
     </div>
     <!--End banner-->
     <div id="head">
@@ -51,98 +57,28 @@
     </div>
     <!--End Head-->
     <div id="title">
-        <ul>
-            <li>
-                <a href="#">THỜI TRANG NAM</a>
-                <ul>
-                    <li><a href="#">Quần Jean</a> </li>
-                    <li><a href="#">Quần short</a> </li>
-                    <li><a href="#">Áo sơ mi</a></li>
-                    <li><a href="#">Áo thun</a></li>
-                </ul>
-            </li>
-            <!--thời trang nữ-->
-            <li>
-                <a href="#">THỜI TRANG NỮ</a>
-                <ul>
-                    <li> <a href="#">Quần Jean</a> </li>
-                    <li><a href="#">Quần short</a> </li>
-                    <li><a href="#">Áo sơ mi</a></li>
-                    <li><a href="#">Áo thun</a></li>
-                </ul>
-            </li>
-        </ul>
+        @Html.Action("DanhMucPartial","DanhMuc")
     </div>
     <!--End title-->
-    <div id="content">
-        <div class="left"> 
-            <div class="box-cha">
-               <div class="box-con">
-
-                   <div class="box-image">
-                      <a href="~/TrangChu/ChiTietSanPham"><img src="~/image/Ao-so-mi.jpg" /></a>                     
-                   </div>
-                   <a href="~/TrangChu/ChiTietSanPham">Áo polo nam in hình</a>
-                   <p>200.000đ</p>
-               </div>
-
-                <div class="box-con">
-                    <div class="box-image">
-                        <a href="#"><img src="~/image/Ao-so-mi.jpg" /></a>
-
-                    </div>
-                    <a href="#">Áo polo nam in hình</a>
-                    <p>200.000đ</p>
-                </div>
-                <div class="box-con">
-                    <div class="box-image">
-                        <a href="#"><img src="~/image/Ao-so-mi.jpg" /></a>
-
-                    </div>
-                    <a href="#">Áo polo nam in hình</a>
-                    <p>200.000đ</p>
-                </div>
-                <div class="box-con">
-                    <div class="box-image">
-                        <a href="#"><img src="~/image/Ao-so-mi.jpg" /></a>
-
-                    </div>
-                    <a href="#">Áo polo nam in hình</a>
-                    <p>200.000đ</p>
-                </div>
-                <div class="box-con"></div>
-                <div class="box-con"></div>
-                <div class="box-con"></div>
-                <div class="box-con"></div>
-
-
-            </div>
+    <div style="background-color:whitesmoke;" id="content">
+        <div style="background-color:whitesmoke;" class="left"> 
+            
+         @Html.Action("SanPhamPartial", "SanPham", new { page = ViewBag.Trang })
+            
         </div>
         <div class="right">
-            <img src="~/image/find-icon.png"/>
+            <img src="~/image/find-icon.png" />
             <b> BỘ LỌC TÌM KIẾM</b>
-            <div class="box-danhmuc">
-              <p><b>Theo danh mục</b></p>
-                <input type="checkbox"/> Quần Jean<br />
-                <input type="checkbox" /> Quần Short<br />
-                <input type="checkbox" /> Áo sơ<br />
-                <input type="checkbox" /> Áo thun<br />
-            </div>
-
-            <div class="box-price">
-                <p><b>Khoảng giá</b></p>
-              <input type="text" placeholder="đ Từ"/> <span>-</span><input type="text" placeholder="đ Đến" />
-            </div>
+           @Html.Action("DMLoc","DanhMuc")
             <div class="submit">
-                <input type="submit" value="Áp dụng"/><br /><br />
-                <button>Xóa tất cả </button>
+                <a href="~/TrangChu/Index"><button>Xóa tất cả </button></a>
             </div>
             <div class="introduce">
                 <div class="introduce-tittle">
                     <b> Fashion-Yên tâm mua sắm</b>
                 </div>
                 <div class="introduce-content">
-                    <img src="~/image/Heart.png"/> <span>ĐỒ ĐẸP - GIÁ HỢP LÝ</span> <br />
+                    <img src="~/image/Heart.png" /> <span>ĐỒ ĐẸP - GIÁ HỢP LÝ</span> <br />
                     <img src="~/image/Heart.png" /> <span>Chất lượng TỐT - Chọn lọc kỹ </span><br />
                     <img src="~/image/Heart.png" /><span>Không vừa được đổi size </span><br />
                     <img src="~/image/Heart.png" /><span>Giao hàng Toàn quốc</span><br />

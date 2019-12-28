@@ -1,0 +1,53 @@
+﻿@model Clothes_Shop.Models.NHANVIEN
+
+@{
+    ViewBag.Title = "EditInfor";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Nhân Viên</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HOTEN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" name="HoTen" value="@Model.HOTEN"/>
+                
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" name="Email" value="@Model.EMAIL" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DIACHI, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" name="DiaChi" value="@Model.DIACHI" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DIENTHOAI, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="number" name="DienThoai" value="@Model.DIENTHOAI" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2-col-md-10">
+                <input type="submit" value="Lưu" class="btnSubmit" id="btnLuu" />
+                <a href=" @Url.Action("infor")"><button type="button">Trở về</button></a>
+            </div>
+        </div>
+    </div>
+}
+

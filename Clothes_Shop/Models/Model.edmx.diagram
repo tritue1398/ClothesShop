@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="738d8a2fb8004f109ddc80f2e3a037e9" Name="Diagram1">
+        <EntityTypeShape EntityType="ClotherShopModel.ChiTietHD" Width="1.5" PointX="8.25" PointY="3.875" />
+        <EntityTypeShape EntityType="ClotherShopModel.GioiTinh" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="ClotherShopModel.HOADON" Width="1.5" PointX="6" PointY="8.75" />
+        <EntityTypeShape EntityType="ClotherShopModel.KHACHHANG" Width="1.5" PointX="3.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ClotherShopModel.LOAISANPHAM" Width="1.5" PointX="3.75" PointY="1.25" />
+        <EntityTypeShape EntityType="ClotherShopModel.NHANVIEN" Width="1.5" PointX="3" PointY="3.625" />
+        <EntityTypeShape EntityType="ClotherShopModel.SANPHAM" Width="1.5" PointX="6" PointY="3" />
+        <EntityTypeShape EntityType="ClotherShopModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="ClotherShopModel.FK_ChiTietHD_HOADON" />
+        <AssociationConnector Association="ClotherShopModel.FK_ChiTietHD_SANPHAM" />
+        <AssociationConnector Association="ClotherShopModel.FK_NHANVIEN_GioiTinh" />
+        <AssociationConnector Association="ClotherShopModel.FK_SANPHAM_GioiTinh" />
+        <AssociationConnector Association="ClotherShopModel.FK_HOADON_KHACHHANG" />
+        <AssociationConnector Association="ClotherShopModel.FK_SANPHAM_LOAISANPHAM" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

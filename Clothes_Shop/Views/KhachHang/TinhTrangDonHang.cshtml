@@ -1,0 +1,158 @@
+﻿@using Clothes_Shop.Models
+@model List<ChiTietHD>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="~/Content/format.css" />
+    <link href="~/Content/LayoutAdmin/css/form.css" rel="stylesheet" />
+    <title>Detail SP</title>
+</head>
+<body>
+
+    <div id="banner">
+        <div class="image">
+            <a href="~/TrangChu/Index"><img src="~/image/Home.jpg" /></a>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Tìm kiếm sản phẩm" />
+            <button title="Tìm kiếm" type="submit" style="cursor:pointer"> <img src="~/image/find.png" /></button>
+        </div>
+        <div class="regester">
+            @Html.Action("RegesterPartial", "Regester")
+        </div>
+    </div>
+    <!--End banner-->
+    <div id="head">
+        <div class="phone">
+            <img src="~/image/phone.png" />
+            <span> Hỗ trợ đặt hàng nhanh:  </span>
+            <span style="color:red"> &nbsp;0344359333</span>
+        </div>
+        <div class="connect">
+            <span>Liên hệ &nbsp; </span> <span><a href="https://www.facebook.com/duong.tritue.9" target="_blank"><img src="~/image/Facebook.png" /></a></span>
+            <span><a href="https://www.instagram.com/_tri.tue98/?hl=en" target="_blank"><img src="~/image/Instagram.png" /></a></span>
+            <span>|</span>
+            <span> <a href="#"> Thông báo</a> </span> <span><a href="#"><img src="~/image/notice.png" /></a></span>
+            <span>|</span>
+            <span><a href="https://help.shopee.vn/vn/s/" target="_blank"> Trợ giúp</a></span>
+            <span> <a href="https://help.shopee.vn/vn/s/" target="_blank"><img src="~/image/help.png" /></a></span>
+        </div>
+    </div>
+    <!--End Head-->
+    <!--  <div id="title">
+
+     </div>-->
+    <!--End title-->
+
+    <div id="content-thanhtoan">
+        <div class="address-recive">
+            <img src="~/image/Gps.png" />
+            <b> ĐỊA CHỈ NHẬN HÀNG</b><br />
+            <span>Họ tên: @ViewBag.TenKH </span>
+            <span> @ViewBag.SoDT</span><br />
+            <span>Địa chỉ: @ViewBag.DiaChi</span>
+        </div>
+        <div class="basket-product">
+            <b> SẢN PHẨM Chưa Thanh Toán</b>
+
+            <br />
+            <ul>
+
+                <li>Hình ảnh sản phẩm</li>
+                <li>Tên sản phẩm</li>
+                <li>Đơn giá</li>
+                <li> Số lượng</li>
+                <li>Số tiền</li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="basket-product-detail">
+
+            @foreach (var item in Model)
+            {
+                double tt = ((double) item.SOLUONG )* ((double)item.SANPHAM.GIABD);
+                <div style="margin-left:-90px;" class="basket-product-detail-box">
+                    <ul>
+                        <li class="box">
+                            <img src="@Url.Content("~/ImageClothes/"+item.SANPHAM.ANHSP)" />
+                        </li>
+                        <li> @item.SANPHAM.TENSP</li>
+                        <li>@String.Format("{0:0,0}", item.SANPHAM.GIABD.ToString())</li>
+                        <li>@item.SOLUONG</li>
+                       
+                        <li>@tt</li>
+                        
+
+                    </ul>
+                </div>
+            }
+
+        </div>
+        @using (Html.BeginForm("DatHang", "GioHang"))
+        {
+
+            <div class="basket-product-pay-method">
+                <b> PHƯƠNG THỨC THANH TOÁN</b>
+                <span class="text">Thanh toán khi nhận hàng</span> <br />
+                <span class="sum-money">Tổng tiền</span> <b>@ViewBag.TongTien</b>
+
+            </div>
+        }
+    </div>
+    <!--End content-thanhtoan-->
+    <div id="footer">
+        <div class="address">
+            <h3>FASHION</h3>
+
+            <span>Fashion chuyên bán các loại sản phẩm quần áo thời trang  online với hàng ngàn mẫu mã để quý khách lựa chọn.</span><br />
+            <span> Hãy đặt hàng online để được hưởng nhiều ưu đãi hơn.</span><br />
+            <span> Chọn mua ngay các mẫu quần áo thời trang mới nhất 2019, hàng đẹp giá cực tốt.</span><br />
+
+
+            <span><img src="~/image/shop.png" /></span>
+            <span>Nhà 23/6, Đường 12, khu phố 2, phường Linh Chiểu, Quận Thủ Đức, To.HCM</span> <br />
+
+            <span> <img src="~/image/phone.png" /> </span>
+            <span>ĐT: 0383592126</span> <br />
+
+            <span><img src="~/image/time.png" /></span>
+            <span>Giờ mở cửa: T2 - T7: 8h00 - 21h30; CN: 9h00 - 17h30</span><br />
+
+            <span><img src="~/image/phone.png" /></span>
+            <span>Hotline: 0344359333</span><br />
+        </div>
+
+        <div class="policy">
+            <h3>CHÍNH SÁCH BÁN HÀNG</h3>
+            <ul>
+                <li><a href="~/Footer/Index"> Thông tin về cửa hàng</a></li>
+                <li><a href="~/Footer/PayMothod"> Phương thức thanh toán </a></li>
+                <li><a href="~/Footer/TransitMothod"> Phương thức vận chuyển</a></li>
+                <li><a href="~/Footer/Address"> Địa chỉ shop FASHION</a></li>
+
+            </ul>
+        </div>
+        <div class="acount">
+            <h3>TÀI KHOẢN</h3>
+            <ul>
+                <li><a href="~/Regester/Login">Đăng nhập</a></li>
+                <li><a href="~/Regester/Index">Đăng kí tài khoản</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!--End footer-->
+
+
+</body>
+</html>
+
+

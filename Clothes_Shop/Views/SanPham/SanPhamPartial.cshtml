@@ -1,0 +1,37 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using Clothes_Shop.Models;
+@model IPagedList<SANPHAM>
+
+<div style="height: 1100px;" class="box-cha">
+    @{
+        foreach (var item in Model)
+        {
+            <div class="box-con">
+
+                <div class="box-image">
+                    <a href="@Url.Action("ChiTietSanPham","SanPham",new{@masp=item.MASP})"><img src="@Url.Content("~/ImageClothes/"+item.ANHSP)" /></a>
+                </div>
+                <a href="@Url.Action("ChiTietSanPham","SanPham",new{@masp=item.MASP})">@item.TENSP</a>
+                <p>Size @item.SIZE</p>
+                <p>@item.GIABD đ</p>
+            </div>
+
+        }
+    }
+
+</div>
+<br />
+<div class="box-trang">
+
+    <div class="MenuTrang">
+        <p style="margin-left: 40px;">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount</p>
+        @Html.PagedListPager(Model, page => Url.Action("Index", "TrangChu", new { page = page }))
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+</div>
+<br />
